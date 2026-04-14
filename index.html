@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dino Birthday Card</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+
+    <!-- SCENE 1 -->
+    <div class="scene" id="scene-opening">
+      <img src="assets/images/background.png" alt="Background" class="background" />
+      <div class="stage">
+        <img src="assets/images/flower_red.png" alt="" class="flower flower-red scene-flower" />
+        <img src="assets/images/flower_pink.png" alt="" class="flower flower-pink scene-flower" />
+        <img src="assets/images/flower_yellow.png" alt="" class="flower flower-yellow scene-flower" />
+        <img src="assets/images/flower_turquoise.png" alt="" class="flower flower-turquoise scene-flower" />
+
+        <img src="assets/images/shadow_egg.png" alt="" class="egg-shadow story-egg-shadow" />
+        <img src="assets/images/egg.png" alt="Egg" class="egg story-egg" id="egg" />
+
+        <img src="assets/images/egg_crack_1.png" alt="" class="egg-crack hidden" id="egg-crack-1" />
+        <img src="assets/images/egg_crack_2.png" alt="" class="egg-crack hidden" id="egg-crack-2" />
+
+        <div class="bubble-wrap" id="bubble-wrap-opening">
+          <img src="assets/images/speech_bubble.png" alt="" class="speech-bubble" />
+          <div class="bubble-text" id="bubble-text-opening"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SCENE 2 -->
+    <div class="scene hidden" id="scene-dino-head">
+      <img src="assets/images/background.png" alt="Background" class="background" />
+      <div class="stage">
+        <img src="assets/images/flower_red.png" alt="" class="flower flower-red scene-flower" />
+        <img src="assets/images/flower_pink.png" alt="" class="flower flower-pink scene-flower" />
+        <img src="assets/images/flower_yellow.png" alt="" class="flower flower-yellow scene-flower" />
+        <img src="assets/images/flower_turquoise.png" alt="" class="flower flower-turquoise scene-flower" />
+
+        <img src="assets/images/shadow_egg.png" alt="" class="egg-shadow story-egg-shadow" />
+        <img src="assets/images/egg_bottom.png" alt="" class="egg-bottom story-egg-bottom hidden" id="egg-bottom" />
+        <img src="assets/images/dino_head.png" alt="Dino head" class="dino-head hidden" id="dino-head" />
+        <img src="assets/images/egg_top.png" alt="" class="egg-top hidden" id="egg-top" />
+        <img src="assets/images/egg_shells.png" alt="" class="egg-shells story-egg-shells hidden" id="egg-shells" />
+
+        <div class="bubble-wrap" id="bubble-wrap-scene2">
+          <img src="assets/images/speech_bubble.png" alt="" class="speech-bubble" />
+          <div class="bubble-text" id="bubble-text-scene2"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SCENE 3 -->
+    <div class="scene hidden" id="scene-dino-full">
+      <img src="assets/images/background.png" alt="Background" class="background" />
+      <div class="stage">
+        <img src="assets/images/flower_red.png" alt="" class="flower flower-red scene-flower" />
+        <img src="assets/images/flower_pink.png" alt="" class="flower flower-pink scene-flower" />
+        <img src="assets/images/flower_yellow.png" alt="" class="flower flower-yellow scene-flower" />
+        <img src="assets/images/flower_turquoise.png" alt="" class="flower flower-turquoise scene-flower" />
+
+        <img src="assets/images/shadow_egg.png" alt="" class="egg-shadow story-egg-shadow" />
+        <img src="assets/images/egg_bottom.png" alt="" class="egg-bottom story-egg-bottom" />
+        <img src="assets/images/egg_shells.png" alt="" class="egg-shells story-egg-shells" />
+
+        <img src="assets/images/shadow_dino.png" alt="" class="dino-full-shadow hidden" id="dino-full-shadow" />
+        <img src="assets/images/dino_full.png" alt="Dino full" class="dino-full hidden" id="dino-full" />
+
+        <div class="bubble-wrap" id="bubble-wrap-scene3">
+          <img src="assets/images/speech_bubble.png" alt="" class="speech-bubble" />
+          <div class="bubble-text" id="bubble-text-scene3"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SCENE 4 -->
+    <div class="scene hidden" id="scene-flower-quest">
+      <img src="assets/images/background.png" alt="Background" class="background" />
+      <div class="stage">
+        <img src="assets/images/flower_red.png" alt="" class="flower flower-red scene-flower quest-flower" id="flower-red" />
+        <img src="assets/images/flower_pink.png" alt="" class="flower flower-pink scene-flower quest-flower" id="flower-pink" />
+        <img src="assets/images/flower_yellow.png" alt="" class="flower flower-yellow scene-flower quest-flower" id="flower-yellow" />
+        <img src="assets/images/flower_turquoise.png" alt="" class="flower flower-turquoise scene-flower quest-flower" id="flower-turquoise" />
+        <img src="assets/images/flower_purple.png" alt="" class="flower flower-purple scene-flower quest-flower hidden" id="flower-purple" />
+
+        <img src="assets/images/shadow_egg.png" alt="" class="egg-shadow story-egg-shadow" />
+        <img src="assets/images/egg_bottom.png" alt="" class="egg-bottom story-egg-bottom" />
+        <img src="assets/images/egg_shells.png" alt="" class="egg-shells story-egg-shells" />
+
+        <img src="assets/images/shadow_dino.png" alt="" class="dino-full-shadow" />
+        <img src="assets/images/dino_full.png" alt="Dino full" class="dino-full" />
+
+        <div class="bubble-wrap" id="bubble-wrap-scene4">
+          <img src="assets/images/speech_bubble.png" alt="" class="speech-bubble" />
+          <div class="bubble-text" id="bubble-text-scene4"></div>
+        </div>
+
+        <button class="help-button hidden" id="help-button">
+          <img src="assets/images/button_help.png" alt="" class="help-button-bg" />
+          <span class="help-button-label">Help Dino</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- SCENE 5 -->
+    <div class="scene hidden" id="scene-bouquet">
+      <img src="assets/images/background.png" alt="Background" class="background" />
+      <div class="stage">
+        <img src="assets/images/shadow_egg.png" alt="" class="egg-shadow story-egg-shadow" />
+        <img src="assets/images/egg_bottom.png" alt="" class="egg-bottom story-egg-bottom" />
+        <img src="assets/images/egg_shells.png" alt="" class="egg-shells story-egg-shells" />
+
+        <img src="assets/images/shadow_dinobouquet.png" alt="" class="dino-bouquet-shadow hidden" id="dino-bouquet-shadow" />
+        <img src="assets/images/dino_bouquet.png" alt="Dino bouquet" class="dino-bouquet hidden" id="dino-bouquet" />
+
+        <div class="bubble-wrap" id="bubble-wrap-scene5">
+          <img src="assets/images/speech_bubble.png" alt="" class="speech-bubble" />
+          <div class="bubble-text" id="bubble-text-scene5"></div>
+        </div>
+
+        <div class="heart-effect hidden" id="heart-effect">❤</div>
+      </div>
+    </div>
+
+    <div class="fade-overlay" id="fade-overlay"></div>
+
+    <audio id="nature-audio" src="assets/sounds/nature_ambient.mp3" loop></audio>
+    <audio id="egg-crack-audio" src="assets/sounds/egg_crack.mp3"></audio>
+    <audio id="dino-appear-audio" src="assets/sounds/dino_appear.mp3" preload="auto"></audio>
+    <audio id="pop-audio" src="assets/sounds/pop.mp3"></audio>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
