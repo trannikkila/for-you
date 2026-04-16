@@ -52,6 +52,89 @@ function renderBubble(el, text) {
   el.innerHTML = `<div class="bubble-content">${text}</div>`;
 }
 
+function resetBubbleAttention() {
+  const bubbleWrapScene4 = document.getElementById("bubble-wrap-scene4");
+
+  bubbleWrapScene4.classList.remove(
+    "bubble-attention",
+    "bubble-glow-red",
+    "bubble-glow-pink",
+    "bubble-glow-yellow",
+    "bubble-glow-turquoise",
+    "bubble-glow-purple"
+  );
+
+  void bubbleWrapScene4.offsetWidth;
+}
+
+function triggerBubbleAttention(colorName) {
+  const bubbleWrapScene4 = document.getElementById("bubble-wrap-scene4");
+
+  resetBubbleAttention();
+
+  bubbleWrapScene4.classList.add("bubble-attention");
+
+  const glowClassMap = {
+    red: "bubble-glow-red",
+    pink: "bubble-glow-pink",
+    yellow: "bubble-glow-yellow",
+    turquoise: "bubble-glow-turquoise",
+    purple: "bubble-glow-purple"
+  };
+
+  const glowClass = glowClassMap[colorName];
+  if (glowClass) {
+    bubbleWrapScene4.classList.add(glowClass);
+  }
+
+  /* remove glow after a moment so next click can reset cleanly */
+  setTimeout(() => {
+    bubbleWrapScene4.classList.remove("bubble-attention");
+  }, 1200);
+
+  setTimeout(() => {
+    if (glowClass) {
+      bubbleWrapScene4.classList.remove(glowClass);
+    }
+  }, 1800);
+}
+
+function animateFlowerToBubble(flowerElement) {
+  const bubbleWrapScene4 = document.getElementById("bubble-wrap-scene4");
+  const flowerRect = flowerElement.getBoundingClientRect();
+  const bubbleRect = bubbleWrapScene4.getBoundingClientRect();
+
+  const clone = flowerElement.cloneNode(true);
+  clone.classList.remove("flower-picked", "flower-activate", "active-flower", "hidden");
+  clone.classList.add("flower-fly-clone");
+
+  clone.style.width = `${flowerRect.width}px`;
+  clone.style.left = "0";
+  clone.style.top = "0";
+
+  const startX = flowerRect.left;
+  const startY = flowerRect.top;
+
+  const endX = bubbleRect.left + bubbleRect.width * 0.72;
+  const endY = bubbleRect.top + bubbleRect.height * 0.2;
+
+  const midX = startX + (endX - startX) * 0.55;
+  const midY = startY + (endY - startY) * 0.35 - 18;
+
+  clone.style.setProperty("--fly-x-start", `${startX}px`);
+  clone.style.setProperty("--fly-y-start", `${startY}px`);
+  clone.style.setProperty("--fly-x-mid", `${midX}px`);
+  clone.style.setProperty("--fly-y-mid", `${midY}px`);
+  clone.style.setProperty("--fly-x-end", `${endX}px`);
+  clone.style.setProperty("--fly-y-end", `${endY}px`);
+
+  document.body.appendChild(clone);
+
+  setTimeout(() => {
+    clone.remove();
+  }, 950);
+}
+
 function setOpeningBubbleText(text) {
   bubbleTextOpening.textContent = text;
 }
@@ -326,6 +409,9 @@ function handleFlowerClick(flowerName, flowerElement) {
 
   playPopSound();
   pickFlowerEffect(flowerElement);
+
+  triggerBubbleAttention(flowerName);
+  animateFlowerToBubble(flowerElement);
 
   if (flowerName === "red") {
     collectedBaseFlowers += 1;
