@@ -138,7 +138,7 @@ function startOpeningText() {
   setTimeout(() => {
     bubbleWrap.classList.remove("hidden");
     setOpeningBubbleText("...hello?");
-  }, 2500);
+  }, 3000);
 
   // Then instruction
   setTimeout(() => {
