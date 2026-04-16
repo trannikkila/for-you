@@ -480,3 +480,79 @@ body {
     opacity: 1;
   }
 }
+
+/* =========================
+   Bubble attention effect
+   ========================= */
+
+.bubble-wrap {
+  transition: filter 0.25s ease, transform 0.25s ease;
+}
+
+/* pulse */
+.bubble-attention {
+  animation: bubblePulse 1s ease-in-out 2;
+}
+
+@keyframes bubblePulse {
+  0%   { transform: translateX(-50%) scale(1); }
+  25%  { transform: translateX(-50%) scale(1.03); }
+  50%  { transform: translateX(-50%) scale(1.06); }
+  75%  { transform: translateX(-50%) scale(1.03); }
+  100% { transform: translateX(-50%) scale(1); }
+}
+
+/* color glow */
+.bubble-glow-red {
+  filter:
+    drop-shadow(0 0 6px rgba(255, 90, 90, 0.65))
+    drop-shadow(0 0 14px rgba(255, 90, 90, 0.45));
+}
+
+.bubble-glow-pink {
+  filter:
+    drop-shadow(0 0 6px rgba(255, 120, 190, 0.65))
+    drop-shadow(0 0 14px rgba(255, 120, 190, 0.45));
+}
+
+.bubble-glow-yellow {
+  filter:
+    drop-shadow(0 0 6px rgba(255, 215, 90, 0.75))
+    drop-shadow(0 0 14px rgba(255, 215, 90, 0.5));
+}
+
+.bubble-glow-turquoise {
+  filter:
+    drop-shadow(0 0 6px rgba(70, 220, 210, 0.7))
+    drop-shadow(0 0 14px rgba(70, 220, 210, 0.45));
+}
+
+.bubble-glow-purple {
+  filter:
+    drop-shadow(0 0 6px rgba(180, 110, 255, 0.7))
+    drop-shadow(0 0 14px rgba(180, 110, 255, 0.45));
+}
+
+/* flower copy flying toward bubble */
+.flower-fly-clone {
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  transform-origin: center center;
+  animation: flowerFlyToBubble 0.9s ease-in-out forwards;
+}
+
+@keyframes flowerFlyToBubble {
+  0% {
+    opacity: 1;
+    transform: translate(var(--fly-x-start), var(--fly-y-start)) scale(1);
+  }
+  60% {
+    opacity: 1;
+    transform: translate(var(--fly-x-mid), var(--fly-y-mid)) scale(1.1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(var(--fly-x-end), var(--fly-y-end)) scale(0.55);
+  }
+}
